@@ -11,17 +11,22 @@ namespace DsStan
     {
         static void Main(string[] args)
         {
-
             clStan stan = new clStan();
-            Thread task1 = new Thread(stan);
+            Thread task1 = new Thread(stan.StartStan);
             task1.Start();
+            //task1.Join();
+
 
 
             clDs Ds = new clDs();
-            Thread task2 = new Thread(Ds);
+            Thread task2 = new Thread(Ds.StartDS);
             task2.Start();
+            //task2.Join();
 
+            Console.ReadKey();
 
         }
+
+        
     }
 }
